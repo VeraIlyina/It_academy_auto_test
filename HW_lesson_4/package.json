@@ -1,0 +1,19 @@
+{
+  "name": "first_project",
+  "version": "1.0.0",
+  "description": "29.05.2022",
+  "main": "node.js",
+  "scripts": {
+    "test": "node HW_lesson_4.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "depennpmdencies": {
+    "axios": "^0.27.2",
+    "node": "^17.7.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.2",
+    "fs-extra": "^10.1.0"
+  }
+}
