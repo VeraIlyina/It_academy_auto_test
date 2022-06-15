@@ -58,36 +58,42 @@ console.log(GetFridayThirteen());
 // а) числа изначальное число целое, числа разбивки - целые (4,6,5)
 // б) числа разбивки дробные с 2 знаками после запятой (4.55, 5.20, 5.25)
 
-function getBreakNumber(n, iterations) {
-    const parts = [];
-    const parts1 = [];
-    let remainder = n;
-    let remainder1 = n;
 
-    for (let i = 1; i <= iterations; i++) {
+function getBreakNumber(n, iterations) {
+    let j = 0;
+    while (j<2){
+    const parts = [];
+    let remainder = n;
+        for (let i = 1; i <= iterations; i++) {
+
         if (i === iterations) {
             parts.push(remainder);
-            parts1.push(remainder1);
             break;
         }
+        let part;
+        if (j < 1){
+            part = Math.round(Math.random() * (remainder - 1 + 1) + 1);
+            }
 
-        const part = Math.round(Math.random() * (remainder1 - 1 + 1) + 1);
-        const part1 = (Math.random() * (remainder1 - 1 + 1) + 1).toFixed(2);
+        else if (j === 1){
+           part = +(Math.random() * (remainder - 1 + 1) + 1).toFixed(2);
+        }
         parts.push(part);
-        parts1.push(part1);
         remainder -= part;
-        remainder1 -= part1;
+
     }
+
     const total = totalFromParts(parts);
-    const total1 = totalFromParts(parts1);
+
 
     console.log(parts.join());
     console.log('Total is ' + total);
-    console.log(parts1.join());
-    console.log('Total1 is ' + total1);
+        j++;
+    }
 
     function totalFromParts(parts) {
-        return parts.reduce((sum, value) => +sum + +value);
+        return parts.reduce((sum, value) => sum + value);
+        console.log(parts.reduce((sum, value) => sum + value));
     }
 }
 getBreakNumber(15, 2);
