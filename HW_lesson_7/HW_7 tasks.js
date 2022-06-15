@@ -52,6 +52,7 @@ console.log(GetFridayThirteen());
 
 
 
+
 // 3) Напишите код который будет разбивать число на заданное количество
 // рандомных чисел сумма которых будет равна изначальному числу.
 // Пример: разбить 15 на 3 части (сумма четырех чисел будет равна 15) (4,6,5)
@@ -76,7 +77,7 @@ function getBreakNumber(n, iterations) {
             }
 
         else if (j === 1){
-           part = +(Math.random() * (remainder - 1 + 1) + 1).toFixed(2);
+           part = (Math.round(Math.random() * (remainder - 1 + 1) + 1) * 100)/10000;
         }
         parts.push(part);
         remainder -= part;
