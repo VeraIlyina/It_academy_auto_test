@@ -34,8 +34,7 @@ function GetFridayThirteen() {
     let fridayThirteen = 0;
     let today = new Date();
     let startDate = new Date('01/01/2000');
-    if (today.valueOf() > startDate.valueOf()){
-        do
+       do
         {
             if (startDate.getDay() === 5 && startDate.getDate() === 13){
                 fridayThirteen++;
@@ -43,7 +42,7 @@ function GetFridayThirteen() {
             startDate.setDate(startDate.getDate() + 1);
         }
         while (today.valueOf() > startDate.valueOf())
-    }
+
     return fridayThirteen;
 }
 
