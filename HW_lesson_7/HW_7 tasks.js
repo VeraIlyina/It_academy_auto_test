@@ -72,11 +72,11 @@ function getBreakNumber(n, iterations) {
         }
         let part;
         if (j < 1){
-            part = Math.round(Math.random() * (remainder - 1 + 1) + 1);
+            part = Math.floor(Math.random() * (remainder - 1 + 1) + 1);
             }
 
         else if (j === 1){
-           part = (Math.round(Math.random() * (remainder - 1 + 1) + 1) * 100)/10000;
+           part = (Math.floor(Math.random() * (remainder - 1 + 1) + 1) * 100)/10000;
         }
         parts.push(part);
         remainder -= part;
