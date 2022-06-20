@@ -19,7 +19,6 @@ findMaxValue([3,67,15,115, 2, 67, 10108]);
 
 function getFibonacci(N, M) {
     let fib = [];
-
     fib[0] = 0;
     fib[1] = 1;
     for (let i = 2; i <= N+M; i++) {
@@ -72,7 +71,6 @@ getFibonacci(8, 5);
 
 
  function delRepeatingElements(newArray){
-
-     console.log(newArray.filter(el => newArray.indexOf(el) === newArray.lastIndexOf(el)));
+    console.log([...new Set(newArray)]);
  }
  delRepeatingElements([-1, -2, 0, -2, 7, 7, 7, -1, 0, 8, 3, 4, 2, 2]);
