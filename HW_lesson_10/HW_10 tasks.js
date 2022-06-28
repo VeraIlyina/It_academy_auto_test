@@ -5,32 +5,33 @@
 function getRandomNum(min, max){
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
-let promise1 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, getRandomNum(1, 6) * 1000, 1);
-});
-let promise2 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, getRandomNum(1, 6) * 1000, 2);
-});
-let promise3 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, getRandomNum(1, 6) * 1000, 3);
-});
-Promise.race([promise1, promise2, promise3]).then(function(value) {
-    console.log(value);
-});
-
+function getPromise() {
+    let promise1 = new Promise(function (resolve, reject) {
+        setTimeout(resolve, getRandomNum(1, 6) * 1000, 1);
+    });
+    let promise2 = new Promise(function (resolve, reject) {
+        setTimeout(resolve, getRandomNum(1, 6) * 1000, 2);
+    });
+    let promise3 = new Promise(function (resolve, reject) {
+        setTimeout(resolve, getRandomNum(1, 6) * 1000, 3);
+    });
+    Promise.race([promise1, promise2, promise3]).then(function (value) {
+        console.log(value);
+    });
+}
+getPromise()
 //     Сделайте функцию getNum, которая возвращает промис, который с задержкой
 //     в 3 секунды выведет случайное число от 1 до 5.
 //     Создайте async функцию, которая с помощью await будетдожидаться результата
 //     getNum, затем возводить его в квадрат и выводить на экран.
 
-function getNum(){
-    return new Promise(function(resolve, reject) {
-    setTimeout(resolve, 3000, getRandomNum(1, 6));
-})
+function getPromiseWithAwait(timeout, randomNum){
+    return new Promise(function(resolve) {
+        setTimeout(resolve, timeout, randomNum);
+    });
 };
 async function getAwait(){
-    let result = await getNum();
+    let result = await getPromiseWithAwait(3000, getRandomNum(1, 6));;
     console.log(Math.pow(result, 2));
 }
 getAwait();
@@ -40,19 +41,9 @@ getAwait();
 //     Создайте async функцию, которая с помощью await будет дожидаться результата getNum1,
 //     затем будет дожидаться результата getNum2, а затем найдет сумму полученных чисел и выводит на экран.
 
-function getNum1(){
-    return new Promise(function(resolve, reject) {
-        setTimeout(resolve, 3000, getRandomNum(1, 6));
-    });
-};
-function getNum2(){
-    return new Promise(function(resolve, reject) {
-        setTimeout(resolve, 5000, getRandomNum(6, 11));
-    });
-};
 async function getSum(){
-    let term1 = await getNum1();
-    let term2 = await getNum2();
+    let term1 = await getPromiseWithAwait(3000, getRandomNum(1, 6));
+    let term2 = await getPromiseWithAwait(5000, getRandomNum(6, 11));
     console.log(`${term1} + ${term2} = `, term1 + term2);
 }
 getSum();
