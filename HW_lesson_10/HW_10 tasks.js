@@ -49,6 +49,7 @@ getAwait();
 //     затем будет дожидаться результата getNum2, а затем найдет сумму полученных чисел и выводит на экран.
 
 
+
 async function getSum(){
     let term1 = await getPromiseWithAwait(3000, getRandomNum(1, 6));
     let term2 = await getPromiseWithAwait(5000, getRandomNum(6, 11));
