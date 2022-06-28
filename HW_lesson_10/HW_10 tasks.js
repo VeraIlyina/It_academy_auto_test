@@ -5,6 +5,8 @@
 function getRandomNum(min, max){
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+
 function getPromise() {
     let promise1 = new Promise(function (resolve, reject) {
         setTimeout(resolve, getRandomNum(1, 6) * 1000, 1);
@@ -20,16 +22,21 @@ function getPromise() {
     });
 }
 getPromise()
+
+
 //     Сделайте функцию getNum, которая возвращает промис, который с задержкой
 //     в 3 секунды выведет случайное число от 1 до 5.
 //     Создайте async функцию, которая с помощью await будетдожидаться результата
 //     getNum, затем возводить его в квадрат и выводить на экран.
+
 
 function getPromiseWithAwait(timeout, randomNum){
     return new Promise(function(resolve) {
         setTimeout(resolve, timeout, randomNum);
     });
 };
+
+
 async function getAwait(){
     let result = await getPromiseWithAwait(3000, getRandomNum(1, 6));;
     console.log(Math.pow(result, 2));
@@ -40,6 +47,7 @@ getAwait();
 //     Сделайте также функцию getNum2, которая возвращает промис, который с задержкой в 5 секунд выведет случайное число от 6 до 10.
 //     Создайте async функцию, которая с помощью await будет дожидаться результата getNum1,
 //     затем будет дожидаться результата getNum2, а затем найдет сумму полученных чисел и выводит на экран.
+
 
 async function getSum(){
     let term1 = await getPromiseWithAwait(3000, getRandomNum(1, 6));
