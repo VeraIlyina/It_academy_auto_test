@@ -4,7 +4,7 @@ module.exports = {
     package: './package.json',
     reporter: 'mochawesome',
     slow: 75,
-    timeout: 100000,
+    timeout: 600000,
     ui: 'bdd',
     "watch-files": ['./test/*.test.js'],
 };
