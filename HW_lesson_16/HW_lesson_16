@@ -1,0 +1,19 @@
+Css
+1. 	.block-link__overlay-link[rev^='hero1'] 		        - элемент с картинкой
+2. 	#orb-header .orb-nav-homedotcom a:link 			        - найти только первый видимый элемент
+	#orb-header .orb-nav-culture a:link			            - последний видимый элемент
+	.orbit-header-links.international li:nth-child(odd) 	- найти нечетные элементы
+3. 	CSS нельзя  						                    - дата
+4. 	#orbit-search-button					                - кликабельный элемент поиска
+5	#homepage-link  					                    - лого
+6.	.module--promo .media-list li:not(:first-child) 	    - новости блоком
+
+X-path
+1. 	//*[@class="block-link__overlay-link"][contains(@rev,'hero1|overlay')] 	- элемент с картинкой
+2. 	 //*[@id="orb-header"]//*[@class= 'orb-nav-homedotcom']//a 		        - найти только первый видимый элемент
+	 //*[@id="orb-header"]//*[@class= 'orb-nav-culture']//a			        - последний видимый элемент
+	//*[@id="orb-header"]//*[@class="orbit-header-links international"]//li[position() mod 2 != 0] - найти нечетные элементы
+3. 	//*[@class="module__title"]/text()[normalize-space()]  			        - дата
+4. 	//*[@id='orbit-search-button']						                    - кликабельный элемент поиска
+5	//*[@id="homepage-link"] 						                        - лого
+6.	//*[@class="media-list"]//li[position() > 1] 				            - новости блоком
