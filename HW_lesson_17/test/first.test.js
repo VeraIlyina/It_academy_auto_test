@@ -32,15 +32,15 @@ describe(`Сheck the text of the main title "ChromeDriver"`, function() {
     });
 
 
-    after(async () =>{
-        await driver.close();
-    });
-
-
     afterEach(async ()=>{
         await driver.sleep(1000);
     })
 
+
+    after(async () =>{
+        await driver.close();
+    });
+    
 
     it(`Check the text 'ChromeDriver - WebDriver for Chrome' in the title of main page`, async () => {
        return getTitlePage('ChromeDriver - WebDriver for Chrome' );
