@@ -7,9 +7,9 @@ describe(`Testing button search WebdriverIO site`, function() {
 
     it(`Button 'Search' should find second value in dropdown menu`, async() => {
         await searchComponents.navigate('https://webdriver.io/');
-        await searchComponents.getSearchField();
-        await searchComponents.inputSearchValue('API');
-        await searchComponents.clickDropdownMenuSearchValue();
+        await $(searchComponents.searchField).click();
+        await $(searchComponents.docSearchField).addValue('API')
+        await $(searchComponents.docSearchDropdownItem1).click();
         await expect(browser).toHaveUrlContaining('#api');
     });
 

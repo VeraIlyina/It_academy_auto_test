@@ -5,10 +5,6 @@ class NeedHelpPage extends BasePage{
         super()
         this.headerTextNeedHelpPage = "//*[@class = 'theme-doc-markdown markdown']//header";
     }
-    async getHeaderTextNeedHelpPage() {
-        return await $(this.headerTextNeedHelpPage).getText();
-    }
-
 
 }
 module.exports = NeedHelpPage;

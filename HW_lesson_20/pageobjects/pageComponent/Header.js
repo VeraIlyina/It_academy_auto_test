@@ -10,16 +10,5 @@ class Header extends BasePage {
         this.gitHubButton = '//*[@class=\'navbar__item navbar__link header-github-link\']';
 
     }
-    async getBackgroundMainPage(){
-        return $(this.backgroundMainPage);
-
-    }
-    async selectChangeLightDarkThemeButton(){
-        await baseElement.click(this.changeLightDarkThemeButton);
-    }
-    async selectGitHubButton(){
-        await baseElement.click(this.gitHubButton);
-    }
-
 }
 module.exports = Header;

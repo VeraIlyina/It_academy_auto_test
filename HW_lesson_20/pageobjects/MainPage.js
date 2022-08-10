@@ -18,32 +18,8 @@ class MainPage extends BasePage {
 
 
     }
-    async selectButtonGetStarted(){
-        await baseElement.click(this.getStartedButton);
-    }
-    async selectButtonWatchTalks(){
-        await baseElement.click(this.watchTalksButton);
-    }
-    async selectButtonReadTheBook(){
-        await baseElement.click(this.readTheBookButton);
-    }
-    async selectButtonTakeTheCourse(){
-        await baseElement.click(this.takeTheCourseButton);
-    }
-    async selectButtonSupport(){
-        await baseElement.click(this.supportButton);
-    }
-    async selectReactLinkWebsiteOnMainPage(){
-        await baseElement.click(this.reactLinkWebsiteOnMainPage);
-    }
-    async selectAngularLinkWebsiteOnMainPage(){
-        await baseElement.click(this.angularLinkWebsiteOnMainPage);
-    }
-    async selectPolymerLinkWebsiteOnMainPage(){
-        await baseElement.click(this.polymerLinkWebsiteOnMainPage);
-    }
-    async selectVueJsLinkWebsiteOnMainPage(){
-        await baseElement.click(this.vueJsLinkWebsiteOnMainPage);
+    async selectButton(selectorButton){
+        await baseElement.click(selectorButton);
     }
 
 }

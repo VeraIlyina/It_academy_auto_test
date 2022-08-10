@@ -11,15 +11,6 @@ class SearchComponent extends BasePage {
         this.docSearchDropdownItem1 = "//*[@id='docsearch-item-1']";
         this.docSearchDropdownItem2 = "//*[@id='docsearch-item-2']";
     }
-    async getSearchField() {
-        return baseElements.click(this.searchField);
-    }
-    async inputSearchValue(usersSearchValue){
-        await $(this.docSearchField).addValue(usersSearchValue);
-    }
-    async clickDropdownMenuSearchValue(){
-        await baseElements.click(this.docSearchDropdownItem1);
-    }
 
 }
 module.exports = SearchComponent;

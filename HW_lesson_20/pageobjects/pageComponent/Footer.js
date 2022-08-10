@@ -12,24 +12,10 @@ class Footer extends BasePage {
 
     }
 
-    async getStartedPageFooterLink(){
-        await $(this.startedPageFooterLink).scrollIntoView()
-        await baseElement.click(this.startedPageFooterLink);
+    async getLinkPage(selector){
+        await $(selector).scrollIntoView()
+        await baseElement.click(selector);
 
     }
-    async getApiReferenceFooterLink(){
-        await $(this.apiReferenceFooterLink).scrollIntoView()
-        await baseElement.click(this.apiReferenceFooterLink);
-    }
-
-    async getContributeFooterLink(){
-        await $(this.contributeFooterLink).scrollIntoView()
-        await baseElement.click(this.contributeFooterLink);
-    }
-    async getHelpFooterLink(){
-        await $(this.helpFooterLink).scrollIntoView()
-        await baseElement.click(this.helpFooterLink);
-    }
-
 }
 module.exports = Footer;

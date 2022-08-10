@@ -5,9 +5,6 @@ class ContributePage extends BasePage{
         super()
         this.headerTextContributePage = "//*[@class = 'theme-doc-markdown markdown']//header";
     }
-    async getHeaderTextContributePage() {
-        return await $(this.headerTextContributePage).getText();
-    }
 
 
 }

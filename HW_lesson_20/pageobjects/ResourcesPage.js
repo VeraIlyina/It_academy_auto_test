@@ -5,9 +5,6 @@ class ResourcesPage extends BasePage{
         super()
         this.headerTextResources = "//*[@class='theme-doc-markdown markdown']//h1";
     }
-    async getHeaderTextResources() {
-        return await $(this.headerTextResources).getText();
-    }
 
 
 }
