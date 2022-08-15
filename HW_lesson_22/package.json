@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive test --timeout 50000"
+    "test": "mocha --recursive test"
   },
   "author": "",
   "license": "ISC",
