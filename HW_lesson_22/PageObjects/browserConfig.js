@@ -4,7 +4,7 @@ async function StartBrowser() {
     let browser;
 
     browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
         devtools: false,
         args: [

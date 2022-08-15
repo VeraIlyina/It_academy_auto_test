@@ -30,6 +30,7 @@ describe('Testing button search Puppeteer site', () => {
 
     it('Button "Search" should find text "Selenium"', async () => {
         await searchPage.searchFor('Selenium');
+        await page.waitForTimeout(4000)
         let element = await page.$(fAQPage.headerTextIsPuppeteerreplacingSeleniumWebDriver);
         const text = await page.$eval(fAQPage.headerTextIsPuppeteerreplacingSeleniumWebDriver, element => element.textContent);
         expect(text).to.eql('Q: Is Puppeteer replacing Selenium/WebDriver?​');
