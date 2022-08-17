@@ -1,0 +1,16 @@
+{
+  "name": "hw_lesson_22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "puppeteer": "^16.1.0"
+  }
+}
