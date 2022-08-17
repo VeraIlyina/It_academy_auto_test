@@ -1,6 +1,3 @@
-// const BaseElement = require('../helpers/BaseElements');
-// const baseElement = new BaseElement();
-
 class MainMenu {
     constructor() {
         this.headerTextPuppeteerOnMainPage = '.theme-doc-markdown.markdown h1';

@@ -11,6 +11,7 @@ class SearchPage {
         await baseElements.waitForSelectorAndClick(this.SEARCH_BOX);
         await this.page.type(this.SEARCH_BOX, searchValue, { delay: 100 });
         await this.page.keyboard.press('Enter');
+        await this.page.waitForTimeout(6000);
     }
 }
 module.exports = SearchPage;
