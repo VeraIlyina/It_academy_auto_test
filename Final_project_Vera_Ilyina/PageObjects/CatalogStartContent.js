@@ -1,8 +1,11 @@
 class CatalogStartContent {
-    constructor() {
 
-        this.catalogContentTitle = '.catalog-title';
+	constructor() {
 
-    }
-}
+		this.catalogContentTitle = '.catalog-title';
+
+	};
+
+};
+
 module.exports = CatalogStartContent;
