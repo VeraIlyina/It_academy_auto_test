@@ -6,12 +6,6 @@
     },
     "extends": ["plugin:ui-testing/puppeteer"],
     "overrides": [
-        {
-            "files": [ "*.js" ],
-            "rules": {
-                "quotes": [ 2, "single" ]
-            }
-        }
     ],
     "parserOptions": {
         "ecmaVersion": "latest"

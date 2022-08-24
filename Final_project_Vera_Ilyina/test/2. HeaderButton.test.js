@@ -40,7 +40,7 @@ describe('Testing Header Buttons https://www.wildberries.by/', () => {
 	afterEach('take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: `./screenshot/${1}.png`});
+			await page.screenshot({path: `./screenshot/ErrorHeaderButton.png`});
 		}
 
 	});

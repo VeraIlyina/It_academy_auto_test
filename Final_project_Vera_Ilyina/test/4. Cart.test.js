@@ -36,7 +36,7 @@ describe('Testing button search Wildberries site', () => {
 	afterEach('Take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: './screenshot/pptr.png'});
+			await page.screenshot({path: './screenshot/ErrorCartTest.png'});
 		}
 
 	});
