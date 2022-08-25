@@ -31,16 +31,16 @@ describe('Testing Header Buttons https://www.wildberries.by/', () => {
 		browser = await StartBrowser();
 		page = await browser.newPage();
 		baseElements = new BaseElements(page);
-		await page.goto('https://www.wildberries.by/');
+		await page.goto('https://www.wildberries.by/', { waitUntil: 'networkidle2' });
 		const context = browser.defaultBrowserContext();
 		await context.overridePermissions('https://www.wildberries.by/', ['geolocation']);
 
 	});
 
-	afterEach('take screenshot on failure', async function () {
+	afterEach('Take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: `./screenshot/ErrorHeaderButton.png`});
+			await page.screenshot({path: `./screenshot/ErrorHeaderButton-${this.currentTest.title}.png`});
 		}
 
 	});
@@ -86,7 +86,7 @@ describe('Testing Header Buttons https://www.wildberries.by/', () => {
 
 	it('9. Button \'Text chat\' on main menu should open popup window \'Chat\'', async () => {
 
-		await baseElements.click(header.textChatButton);
+		await baseElements.click(header.textChatButton, chatPopUpWindow.chatPopUpHeader);
 		const text = await page.$eval(chatPopUpWindow.chatPopUpHeader, element => element.textContent);
 		await expect(text).equal('Чат поддержки');
 

@@ -14,7 +14,8 @@
     "eslint-plugin-mocha": "^10.1.0",
     "eslint-plugin-ui-testing": "^2.0.1",
     "mocha": "^10.0.0",
-    "puppeteer": "^16.1.0"
+    "puppeteer": "^16.1.0",
+    "puppeteer-report": "^3.0.3"
   },
   "devDependencies": {
     "eslint": "^8.22.0",

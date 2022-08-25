@@ -7,11 +7,12 @@ class BaseElements {
 
 	};
 
-	async click(element){
+	async click(element, nextElement){
 
 		await this.page.waitForSelector(element);
 		await this.page.click(element);
-		await this.page.waitForTimeout(1000);
+		await this.page.waitForTimeout(nextElement);
+		await this.page.waitForTimeout(2000);
 
 	};
 

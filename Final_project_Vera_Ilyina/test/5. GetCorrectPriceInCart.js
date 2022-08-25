@@ -27,7 +27,7 @@ describe('Testing price in cart', () => {
 		searchComponents = new SearchComponents(page);
 		baseElements = new BaseElements(page);
 		cartPage = new CartPage(page);
-		await page.goto('https://www.wildberries.by/');
+		await page.goto('https://www.wildberries.by/', { waitUntil: 'networkidle2' });
 		const context = browser.defaultBrowserContext();
 		await context.overridePermissions('https://www.wildberries.by/', ['geolocation']);
 
@@ -36,7 +36,7 @@ describe('Testing price in cart', () => {
 	afterEach('Take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: './screenshot/ErrorGetCorrectPriceInPrice.png'});
+			await page.screenshot({path: './screenshot/ErrorGetCorrectPriceInPrice-${this.currentTest.title}.png'});
 		}
 
 	});

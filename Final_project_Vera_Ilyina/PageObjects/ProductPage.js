@@ -34,6 +34,7 @@ class ProductPage {
 		await this.addProductInBasketAndGoToBasket(page);
 		const nameProduct = await page.$eval( this.productPageHeaderGoodName, element => element.textContent);
 		await page.waitForTimeout(1000);
+		await page.waitForSelector(cartPage.cartGoodName);
 		const extractedText = await page.$eval(cartPage.cartGoodName, element => element.textContent);
 		return { nameProduct, extractedText };
 

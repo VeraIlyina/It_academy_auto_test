@@ -4,5 +4,5 @@ module.exports = {
     slow: 75,
     timeout: 60000,
     ui: 'bdd',
-    // "watch-files": ['./test/*.test.js'],
+
 };

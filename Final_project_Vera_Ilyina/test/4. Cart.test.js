@@ -27,7 +27,7 @@ describe('Testing button search Wildberries site', () => {
 		searchComponents = new SearchComponents(page);
 		baseElements = new BaseElements(page);
 		cartPage = new CartPage(page);
-		await page.goto('https://www.wildberries.by/');
+		await page.goto('https://www.wildberries.by/', { waitUntil: 'networkidle2' });
 		const context = browser.defaultBrowserContext();
 		await context.overridePermissions('https://www.wildberries.by/', ['geolocation']);
 
@@ -36,7 +36,7 @@ describe('Testing button search Wildberries site', () => {
 	afterEach('Take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: './screenshot/ErrorCartTest.png'});
+			await page.screenshot({path: './screenshot/ErrorCartTest-${this.currentTest.title}.png'});
 		}
 
 	});
@@ -50,7 +50,7 @@ describe('Testing button search Wildberries site', () => {
 	it('13. Product should adding to the cart', async () => {
 
 		await searchComponents.textSearch('медведь', searchResultPage.searchResultTitle, searchResultPage.firstProductOnResultPage);
-		await baseElements.click(searchResultPage.firstProductOnResultPage);
+		await baseElements.click(searchResultPage.firstProductOnResultPage, this.productPageHeaderGoodName,);
 		const { nameProduct, extractedText } = await productPage.descriptionAddedProductShouldEqualProductDescriptionInCart(page);
 		await expect(nameProduct).to.equal(extractedText);
 
@@ -58,7 +58,7 @@ describe('Testing button search Wildberries site', () => {
 
 	it('14. Product should remove from cart', async () => {
 
-		await baseElements.click(cartPage.deleteProductFromCart);
+		await baseElements.click(cartPage.deleteProductFromCart, cartPage.emptyCartHeader);
 		const text = await page.$eval(cartPage.emptyCartHeader, element => element.textContent);
 		await expect(text).to.equal('В корзине пока ничего нет');
 

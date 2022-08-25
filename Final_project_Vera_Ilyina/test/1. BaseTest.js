@@ -27,7 +27,7 @@ describe(' Base(smoke) testing', () => {
 		page = await browser.newPage();
 		searchComponents = new SearchComponents(page);
 		baseElements = new BaseElements(page);
-		await page.goto('https://www.wildberries.by/');
+		await page.goto('https://www.wildberries.by/', { waitUntil: 'networkidle2' });
 		const context = browser.defaultBrowserContext();
 		await context.overridePermissions('https://www.wildberries.by/', ['geolocation']);
 
@@ -36,7 +36,8 @@ describe(' Base(smoke) testing', () => {
 	afterEach('Take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: './screenshot/ErrorBaseTest.png'});
+
+			await page.screenshot({path: `./screenshot/ErrorBaseTest-${this.currentTest.title}.png`});
 
 		}
 
@@ -66,7 +67,7 @@ describe(' Base(smoke) testing', () => {
 
 	it('3. Product should be clickable', async () => {
 
-		await baseElements.click(searchResultPage.firstProductOnResultPage);
+		await baseElements.click(searchResultPage.firstProductOnResultPage, productPage.productPageHeader);
 		const getText = await page.$eval(productPage.productPageHeader, element => element.textContent);
 		expect(getText).to.eql('Brauberg');
 

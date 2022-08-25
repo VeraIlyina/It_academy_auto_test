@@ -23,7 +23,7 @@ describe('Testing search field', () => {
 		page = await browser.newPage();
 		searchComponents = new SearchComponents(page);
 		baseElements = new BaseElements(page);
-		await page.goto('https://www.wildberries.by/');
+		await page.goto('https://www.wildberries.by/', { waitUntil: 'networkidle2' });
 		const context = browser.defaultBrowserContext();
 		await context.overridePermissions('https://www.wildberries.by/', ['geolocation']);
 
@@ -32,7 +32,7 @@ describe('Testing search field', () => {
 	afterEach('Take screenshot on failure', async function () {
 
 		if (this.currentTest.state !== 'passed') {
-			await page.screenshot({path: './screenshot/ErrorSearchFieldClickable.png'});
+			await page.screenshot({path: './screenshot/ErrorSearchFieldClickable-${this.currentTest.title}.png'});
 		}
 		await browser.close();
 
