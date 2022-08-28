@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome10",
+  "definitions": {
+    "Welcome10": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sort": {
+          "$ref": "#/definitions/Sort"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "hotel_id": {
+          "type": "string",
+          "format": "integer"
+        },
+        "total_reviews": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "filters",
+        "hotel_id",
+        "sort",
+        "total_reviews"
+      ],
+      "title": "Welcome10"
+    },
+    "Filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilterCategory"
+          }
+        },
+        "title": {
+          "type": "string"
+        },
+        "default_display_value": {
+          "type": "string"
+        },
+        "default_display_value_with_count": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categories",
+        "default_display_value",
+        "default_display_value_with_count",
+        "id",
+        "title"
+      ],
+      "title": "Filter"
+    },
+    "FilterCategory": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "display_value_with_count": {
+          "type": "string"
+        },
+        "display_value": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "id": {
+          "$ref": "#/definitions/ID"
+        }
+      },
+      "required": [
+        "count",
+        "display_value",
+        "display_value_with_count",
+        "id"
+      ],
+      "title": "FilterCategory"
+    },
+    "Sort": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortCategory"
+          }
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categories",
+        "id",
+        "title"
+      ],
+      "title": "Sort"
+    },
+    "SortCategory": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "display_value": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "display_value",
+        "id"
+      ],
+      "title": "SortCategory"
+    },
+    "ID": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "ID"
+    }
+  }
+}
